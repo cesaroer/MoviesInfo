@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3614E12423E43D004CE1F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E02423E43D004CE1F9 /* SearchViewController.m */; };
+		1F3614E42423E44E004CE1F9 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E32423E44E004CE1F9 /* FilterViewController.m */; };
+		1F3614E82423E4DB004CE1F9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E72423E4DB004CE1F9 /* CollectionViewCell.m */; };
+		1F3614EB2423E4FF004CE1F9 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614EA2423E4FF004CE1F9 /* SearchTableViewCell.m */; };
+		1F3614F02423E54B004CE1F9 /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614EF2423E54B004CE1F9 /* FilterTableViewCell.m */; };
 		1FD310BD2423D8A300B58B6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310BC2423D8A300B58B6B /* AppDelegate.m */; };
 		1FD310C02423D8A300B58B6B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310BF2423D8A300B58B6B /* SceneDelegate.m */; };
 		1FD310C32423D8A300B58B6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310C22423D8A300B58B6B /* ViewController.m */; };
@@ -36,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F3614DF2423E43D004CE1F9 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		1F3614E02423E43D004CE1F9 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		1F3614E22423E44E004CE1F9 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		1F3614E32423E44E004CE1F9 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		1F3614E62423E4DB004CE1F9 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		1F3614E72423E4DB004CE1F9 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		1F3614E92423E4FF004CE1F9 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		1F3614EA2423E4FF004CE1F9 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		1F3614EE2423E54B004CE1F9 /* FilterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterTableViewCell.h; sourceTree = "<group>"; };
+		1F3614EF2423E54B004CE1F9 /* FilterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewCell.m; sourceTree = "<group>"; };
 		1FD310B82423D8A200B58B6B /* MoviesInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD310BB2423D8A300B58B6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1FD310BC2423D8A300B58B6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +96,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3614DE2423E3E8004CE1F9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F3614ED2423E52B004CE1F9 /* FilterVC */,
+				1F3614EC2423E506004CE1F9 /* SearchVc */,
+				1F3614E52423E4BD004CE1F9 /* HomeVc */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1F3614E52423E4BD004CE1F9 /* HomeVc */ = {
+			isa = PBXGroup;
+			children = (
+				1FD310C12423D8A300B58B6B /* ViewController.h */,
+				1FD310C22423D8A300B58B6B /* ViewController.m */,
+				1F3614E62423E4DB004CE1F9 /* CollectionViewCell.h */,
+				1F3614E72423E4DB004CE1F9 /* CollectionViewCell.m */,
+			);
+			path = HomeVc;
+			sourceTree = "<group>";
+		};
+		1F3614EC2423E506004CE1F9 /* SearchVc */ = {
+			isa = PBXGroup;
+			children = (
+				1F3614DF2423E43D004CE1F9 /* SearchViewController.h */,
+				1F3614E02423E43D004CE1F9 /* SearchViewController.m */,
+				1F3614E92423E4FF004CE1F9 /* SearchTableViewCell.h */,
+				1F3614EA2423E4FF004CE1F9 /* SearchTableViewCell.m */,
+			);
+			name = SearchVc;
+			sourceTree = "<group>";
+		};
+		1F3614ED2423E52B004CE1F9 /* FilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				1F3614E22423E44E004CE1F9 /* FilterViewController.h */,
+				1F3614E32423E44E004CE1F9 /* FilterViewController.m */,
+				1F3614EE2423E54B004CE1F9 /* FilterTableViewCell.h */,
+				1F3614EF2423E54B004CE1F9 /* FilterTableViewCell.m */,
+			);
+			path = FilterVC;
+			sourceTree = "<group>";
+		};
 		1FD310AF2423D8A200B58B6B = {
 			isa = PBXGroup;
 			children = (
@@ -104,12 +162,11 @@
 		1FD310BA2423D8A200B58B6B /* MoviesInfo */ = {
 			isa = PBXGroup;
 			children = (
+				1F3614DE2423E3E8004CE1F9 /* ViewControllers */,
 				1FD310BB2423D8A300B58B6B /* AppDelegate.h */,
 				1FD310BC2423D8A300B58B6B /* AppDelegate.m */,
 				1FD310BE2423D8A300B58B6B /* SceneDelegate.h */,
 				1FD310BF2423D8A300B58B6B /* SceneDelegate.m */,
-				1FD310C12423D8A300B58B6B /* ViewController.h */,
-				1FD310C22423D8A300B58B6B /* ViewController.m */,
 				1FD310C42423D8A300B58B6B /* Main.storyboard */,
 				1FD310C72423D8A400B58B6B /* Assets.xcassets */,
 				1FD310C92423D8A400B58B6B /* LaunchScreen.storyboard */,
@@ -267,9 +324,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3614F02423E54B004CE1F9 /* FilterTableViewCell.m in Sources */,
 				1FD310C32423D8A300B58B6B /* ViewController.m in Sources */,
+				1F3614EB2423E4FF004CE1F9 /* SearchTableViewCell.m in Sources */,
 				1FD310BD2423D8A300B58B6B /* AppDelegate.m in Sources */,
+				1F3614E12423E43D004CE1F9 /* SearchViewController.m in Sources */,
 				1FD310CE2423D8A400B58B6B /* main.m in Sources */,
+				1F3614E42423E44E004CE1F9 /* FilterViewController.m in Sources */,
+				1F3614E82423E4DB004CE1F9 /* CollectionViewCell.m in Sources */,
 				1FD310C02423D8A300B58B6B /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
