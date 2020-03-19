@@ -12,6 +12,7 @@
 		1F3614E82423E4DB004CE1F9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E72423E4DB004CE1F9 /* CollectionViewCell.m */; };
 		1F3614EB2423E4FF004CE1F9 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614EA2423E4FF004CE1F9 /* SearchTableViewCell.m */; };
 		1F3614F02423E54B004CE1F9 /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614EF2423E54B004CE1F9 /* FilterTableViewCell.m */; };
+		1F4F93DB2423ECC00061067D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4F93D92423ECC00061067D /* Search.storyboard */; };
 		1FD310BD2423D8A300B58B6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310BC2423D8A300B58B6B /* AppDelegate.m */; };
 		1FD310C02423D8A300B58B6B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310BF2423D8A300B58B6B /* SceneDelegate.m */; };
 		1FD310C32423D8A300B58B6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD310C22423D8A300B58B6B /* ViewController.m */; };
@@ -51,6 +52,7 @@
 		1F3614EA2423E4FF004CE1F9 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		1F3614EE2423E54B004CE1F9 /* FilterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterTableViewCell.h; sourceTree = "<group>"; };
 		1F3614EF2423E54B004CE1F9 /* FilterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewCell.m; sourceTree = "<group>"; };
+		1F4F93DA2423ECC00061067D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MoviesInfo/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		1FD310B82423D8A200B58B6B /* MoviesInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD310BB2423D8A300B58B6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1FD310BC2423D8A300B58B6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				1FD310BC2423D8A300B58B6B /* AppDelegate.m */,
 				1FD310BE2423D8A300B58B6B /* SceneDelegate.h */,
 				1FD310BF2423D8A300B58B6B /* SceneDelegate.m */,
+				1F4F93D92423ECC00061067D /* Search.storyboard */,
 				1FD310C42423D8A300B58B6B /* Main.storyboard */,
 				1FD310C72423D8A400B58B6B /* Assets.xcassets */,
 				1FD310C92423D8A400B58B6B /* LaunchScreen.storyboard */,
@@ -299,6 +302,7 @@
 			files = (
 				1FD310CB2423D8A400B58B6B /* LaunchScreen.storyboard in Resources */,
 				1FD310C82423D8A400B58B6B /* Assets.xcassets in Resources */,
+				1F4F93DB2423ECC00061067D /* Search.storyboard in Resources */,
 				1FD310C62423D8A300B58B6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +372,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F4F93D92423ECC00061067D /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F4F93DA2423ECC00061067D /* Base */,
+			);
+			name = Search.storyboard;
+			sourceTree = "<group>";
+		};
 		1FD310C42423D8A300B58B6B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
+@property (weak, nonatomic) IBOutlet UILabel *movieNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *movieCalifLbl;
+@property (weak, nonatomic) IBOutlet UIView *subView;
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
 
 @end
 
