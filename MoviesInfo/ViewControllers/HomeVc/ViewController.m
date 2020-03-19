@@ -46,7 +46,8 @@
 
 - (void) getData{
     dispatch_group_t group = dispatch_group_create();
-    self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=batman";
+    //self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=batman";
+    self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=pokemon";
     
     NSURL *urlComplete = [NSURL URLWithString:self.url];
     
@@ -86,7 +87,7 @@
             NSLog(@"Id  imdb en el main thread: %@" , idPelicula[i]);
            
 
-            self->cal =  [self getCalificationMovie:idPelicula[i]];
+          //  self->cal =  [self getCalificationMovie:idPelicula[i]];
 
             
             //Vamos a convertir los strings obtenidos en urls
@@ -95,7 +96,37 @@
             UIImage *imageFromData = [UIImage imageWithData:dataFromUrl];
             [self.imagenRealPelicula addObject:imageFromData];
             
+            //Hacemos la declaracion de la url y le interpolamos el id de la película
+               NSString *urlWithIdString = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&i=%@",idPelicula[i]];
+               NSURL *urlWithId = [NSURL URLWithString:urlWithIdString];
+               
             
+         
+                dispatch_async(dispatch_get_main_queue(), ^{
+                  //Hacemos la peticion para sacar de ahi la calificacion
+                      self.calificationMovie = [NSMutableArray new];
+                         [[NSURLSession.sharedSession dataTaskWithURL:urlWithId completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                             
+                             NSError *err;
+                             NSDictionary *obtainedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+                             
+                             if (err) {
+                                 NSLog(@"Fallamos al obtener la data: %@" , err);
+                                 return;
+                             }
+                             
+                             NSString *califications = [obtainedData valueForKey:@"imdbRating"];
+                            [self.calificationMovie addObject: califications];
+                           
+                             NSLog(@"ID de la Pelicula: %@" , idPelicula[i]);
+                             NSLog(@"Calificacion imdb: %@" , califications);
+                             
+                             
+                             
+                         }]resume];
+                    });
+       
+
             
 
         }
@@ -121,39 +152,39 @@
     
 
     
-    //Hacemos la declaracion de la url y le interpolamos el id de la película
-    NSString *urlWithIdString = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&i=%@",movieID];
-    NSURL *urlWithId = [NSURL URLWithString:urlWithIdString];
-    
- 
-        dispatch_group_t group = dispatch_group_create();
-    
-    dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
-       //Hacemos la peticion para sacar de ahi la calificacion
-           self.calificationMovie = [NSMutableArray new];
-              [[NSURLSession.sharedSession dataTaskWithURL:urlWithId completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                  
-                  NSError *err;
-                  NSDictionary *obtainedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-                  
-                  if (err) {
-                      NSLog(@"Fallamos al obtener la data: %@" , err);
-                      return;
-                  }
-                  
-                  NSString *califications = [obtainedData valueForKey:@"imdbRating"];
-                  //Variable a retornar
-                  self->_calif = califications;
-                 
-                  NSLog(@"ID de la Pelicula: %@" , movieID);
-                  NSLog(@"Calificacion imdb: %@" , self->_calif);
-                  
-                   [self.calificationMovie addObject: self->cal];
-                  
-                  
-                  
-              }]resume];
-    });
+//    //Hacemos la declaracion de la url y le interpolamos el id de la película
+//    NSString *urlWithIdString = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&i=%@",movieID];
+//    NSURL *urlWithId = [NSURL URLWithString:urlWithIdString];
+//
+//
+//        dispatch_group_t group = dispatch_group_create();
+//
+//    dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
+//       //Hacemos la peticion para sacar de ahi la calificacion
+//           self.calificationMovie = [NSMutableArray new];
+//              [[NSURLSession.sharedSession dataTaskWithURL:urlWithId completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//
+//                  NSError *err;
+//                  NSDictionary *obtainedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+//
+//                  if (err) {
+//                      NSLog(@"Fallamos al obtener la data: %@" , err);
+//                      return;
+//                  }
+//
+//                  NSString *califications = [obtainedData valueForKey:@"imdbRating"];
+//                  //Variable a retornar
+//                  self->_calif = califications;
+//
+//                  NSLog(@"ID de la Pelicula: %@" , movieID);
+//                  NSLog(@"Calificacion imdb: %@" , self->_calif);
+//
+//                   [self.calificationMovie addObject: self->cal];
+//
+//
+//
+//              }]resume];
+//    });
 
        
 
