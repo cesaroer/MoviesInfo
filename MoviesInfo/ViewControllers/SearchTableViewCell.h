@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *movieImage;
+@property (weak, nonatomic) IBOutlet UILabel *movieNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *movieCalificationCellLbl;
 
 @end
 

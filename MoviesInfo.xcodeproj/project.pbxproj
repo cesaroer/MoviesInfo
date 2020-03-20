@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0682EA2425263B00854914 /* filtros.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0682E92425263B00854914 /* filtros.storyboard */; };
+		1F0682EE2425339A00854914 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0682ED2425339A00854914 /* PresentViewController.m */; };
 		1F3614E12423E43D004CE1F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E02423E43D004CE1F9 /* SearchViewController.m */; };
 		1F3614E42423E44E004CE1F9 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E32423E44E004CE1F9 /* FilterViewController.m */; };
 		1F3614E82423E4DB004CE1F9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3614E72423E4DB004CE1F9 /* CollectionViewCell.m */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F0682E92425263B00854914 /* filtros.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = filtros.storyboard; sourceTree = "<group>"; };
+		1F0682EC2425339A00854914 /* PresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
+		1F0682ED2425339A00854914 /* PresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
 		1F3614DF2423E43D004CE1F9 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		1F3614E02423E43D004CE1F9 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		1F3614E22423E44E004CE1F9 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
@@ -98,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0682EB2425337D00854914 /* PresentVC */ = {
+			isa = PBXGroup;
+			children = (
+				1F0682EC2425339A00854914 /* PresentViewController.h */,
+				1F0682ED2425339A00854914 /* PresentViewController.m */,
+			);
+			name = PresentVC;
+			sourceTree = "<group>";
+		};
 		1F3614DE2423E3E8004CE1F9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,7 @@
 		1F3614EC2423E506004CE1F9 /* SearchVc */ = {
 			isa = PBXGroup;
 			children = (
+				1F0682EB2425337D00854914 /* PresentVC */,
 				1F3614DF2423E43D004CE1F9 /* SearchViewController.h */,
 				1F3614E02423E43D004CE1F9 /* SearchViewController.m */,
 				1F3614E92423E4FF004CE1F9 /* SearchTableViewCell.h */,
@@ -170,6 +185,7 @@
 				1FD310BE2423D8A300B58B6B /* SceneDelegate.h */,
 				1FD310BF2423D8A300B58B6B /* SceneDelegate.m */,
 				1F4F93D92423ECC00061067D /* Search.storyboard */,
+				1F0682E92425263B00854914 /* filtros.storyboard */,
 				1FD310C42423D8A300B58B6B /* Main.storyboard */,
 				1FD310C72423D8A400B58B6B /* Assets.xcassets */,
 				1FD310C92423D8A400B58B6B /* LaunchScreen.storyboard */,
@@ -302,6 +318,7 @@
 			files = (
 				1FD310CB2423D8A400B58B6B /* LaunchScreen.storyboard in Resources */,
 				1FD310C82423D8A400B58B6B /* Assets.xcassets in Resources */,
+				1F0682EA2425263B00854914 /* filtros.storyboard in Resources */,
 				1F4F93DB2423ECC00061067D /* Search.storyboard in Resources */,
 				1FD310C62423D8A300B58B6B /* Main.storyboard in Resources */,
 			);
@@ -328,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0682EE2425339A00854914 /* PresentViewController.m in Sources */,
 				1F3614F02423E54B004CE1F9 /* FilterTableViewCell.m in Sources */,
 				1FD310C32423D8A300B58B6B /* ViewController.m in Sources */,
 				1F3614EB2423E4FF004CE1F9 /* SearchTableViewCell.m in Sources */,

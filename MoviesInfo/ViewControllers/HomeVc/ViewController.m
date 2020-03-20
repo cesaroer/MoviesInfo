@@ -13,7 +13,7 @@
 @interface ViewController () {
     float varToReturn;
     NSString *cal;
-    
+    NSArray *pelisName;
 
 }
 
@@ -40,15 +40,18 @@
     [self getData];
 }
 
-
-
 //MARK: Funciones Para obtener datos de OMDB
 
 - (void) getData{
-    dispatch_group_t group = dispatch_group_create();
     //self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=batman";
-    self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=pokemon";
+   // self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=pokemon";
+
+    pelisName = [NSArray arrayWithObjects:@"pokemon",@"batman",@"1917", nil];
+    int r = arc4random_uniform(3);
+    NSLog(@"Este es el numero random: %d",r);
     
+    self.url = @"http://www.omdbapi.com/?apikey=c37f63f&s=\(peliName)";
+    self.url = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&s=%@",pelisName[r]];
     NSURL *urlComplete = [NSURL URLWithString:self.url];
     
     //Iniciamos el URLSession
@@ -85,23 +88,22 @@
         for (int i = 0; i < posterPelicula.count; i++){
             
             NSLog(@"Id  imdb en el main thread: %@" , idPelicula[i]);
-           
-
-          //  self->cal =  [self getCalificationMovie:idPelicula[i]];
-
-            
             //Vamos a convertir los strings obtenidos en urls
-            NSURL *urlFromString = [[NSURL alloc] initWithString: posterPelicula[i]];
-            NSData *dataFromUrl = [[NSData alloc] initWithContentsOfURL:urlFromString];
-            UIImage *imageFromData = [UIImage imageWithData:dataFromUrl];
-            [self.imagenRealPelicula addObject:imageFromData];
+            if (![posterPelicula[i]  isEqual: @"N/A"]) {
+                NSURL *urlFromString = [[NSURL alloc] initWithString: posterPelicula[i]];
+                NSData *dataFromUrl = [[NSData alloc] initWithContentsOfURL:urlFromString];
+                UIImage *imageFromData = [UIImage imageWithData:dataFromUrl];
+                [self.imagenRealPelicula addObject:imageFromData];
+            }else{
+                UIImage *imagenDefault = [UIImage imageNamed:@"imdblogo"];
+                 [self.imagenRealPelicula addObject:imagenDefault];
+            }
+            
             
             //Hacemos la declaracion de la url y le interpolamos el id de la película
                NSString *urlWithIdString = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&i=%@",idPelicula[i]];
                NSURL *urlWithId = [NSURL URLWithString:urlWithIdString];
-               
-            
-         
+
                 dispatch_async(dispatch_get_main_queue(), ^{
                   //Hacemos la peticion para sacar de ahi la calificacion
                       self.calificationMovie = [NSMutableArray new];
@@ -121,79 +123,18 @@
                              NSLog(@"ID de la Pelicula: %@" , idPelicula[i]);
                              NSLog(@"Calificacion imdb: %@" , califications);
                              
-                             
-                             
                          }]resume];
                     });
        
-
-            
-
         }
-        
 
-        
-
-      
-        
         //Hacemos reload al collection
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collection reloadData];
         });
         
-        
     }]resume];
-    
 }
-
-//MARK: Funcion para obtener la calificacion de las peliculas
-
--(NSString *)getCalificationMovie:(NSString *)movieID{
-    
-
-    
-//    //Hacemos la declaracion de la url y le interpolamos el id de la película
-//    NSString *urlWithIdString = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&i=%@",movieID];
-//    NSURL *urlWithId = [NSURL URLWithString:urlWithIdString];
-//
-//
-//        dispatch_group_t group = dispatch_group_create();
-//
-//    dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
-//       //Hacemos la peticion para sacar de ahi la calificacion
-//           self.calificationMovie = [NSMutableArray new];
-//              [[NSURLSession.sharedSession dataTaskWithURL:urlWithId completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//
-//                  NSError *err;
-//                  NSDictionary *obtainedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-//
-//                  if (err) {
-//                      NSLog(@"Fallamos al obtener la data: %@" , err);
-//                      return;
-//                  }
-//
-//                  NSString *califications = [obtainedData valueForKey:@"imdbRating"];
-//                  //Variable a retornar
-//                  self->_calif = califications;
-//
-//                  NSLog(@"ID de la Pelicula: %@" , movieID);
-//                  NSLog(@"Calificacion imdb: %@" , self->_calif);
-//
-//                   [self.calificationMovie addObject: self->cal];
-//
-//
-//
-//              }]resume];
-//    });
-
-       
-
-    
-    
-    return _calif;
-    
-}
-
 
 
 //MARK: Funciones propias del collection view
@@ -236,13 +177,6 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 50.0;
 }
-
-
-
-
-
-    
-
 
 
 @end
