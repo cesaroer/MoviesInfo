@@ -10,8 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface SearchViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMovies;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchMovieBar;
 
 @end
 

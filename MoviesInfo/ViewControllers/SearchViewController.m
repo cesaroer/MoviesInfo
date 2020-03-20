@@ -10,7 +10,10 @@
 #import "SearchTableViewCell.h"
 
 @interface SearchViewController ()
-
+@property (strong,nonatomic) NSMutableArray *imagenRealPelicula;
+@property (strong, nonatomic) NSMutableArray *peliculaNombre;
+@property (strong,nonatomic) NSMutableArray *calificationMovie;
+@property (weak,nonatomic) NSString *url;
 @end
 
 @implementation SearchViewController
@@ -20,17 +23,26 @@
     // Do any additional setup after loading the view.
     self.tableViewMovies.delegate = self;
     self.tableViewMovies.dataSource = self;
+    self.searchMovieBar.delegate = self;
 }
 
-/*
-#pragma mark - Navigation
+//MARK: Funcion para obtener data
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)getMovieSearchedData:(NSString *)movieName{
+    
+    self.url = [NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=c37f63f&s=%@",movieName];
+    NSURL *requestURL = [NSURL URLWithString:self.url];
+    
+    //Iniciamos el URLSession
+    [[NSURLSession.sharedSession dataTaskWithURL:requestURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@" Contenido de dummy:  %@", dummyString);
+        
+    }]resume];
+    
 }
-*/
+
+//MARK: Funciones de la tableview
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"tcell";
@@ -65,9 +77,6 @@
     return 10;
 }
 
-
-
-
 //Con esta funcion instanciamos el siguiente controllador:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,5 +98,22 @@
     return v;
 }
 
+//MARK: Funcion de searchbar
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *str = searchBar.text;
+    NSLog(@"%@",str);
+    [self getMovieSearchedData:str];
+    //Hacemos dissmis al keyboard
+    [self.view endEditing:YES];
+}
+
+//Con esta funcion cada vez que cambie el texto imprime el texto contenido
+
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+//    NSString *str = searchBar.text;
+//    NSLog(@"%@",str);
+//}
 
 @end
